@@ -20,6 +20,7 @@
         <material>Gazebo/Black</material>
     </gazebo>
 
+    
     <gazebo reference="front_caster">
         <preserveFixedJoint>true</preserveFixedJoint>
         <mu1>0</mu1>
