@@ -42,7 +42,6 @@
         <mu2>1</mu2>
     </gazebo>
 
-
     <!-- Link - base_link -->
     <link name="base_link">
         <inertial>
@@ -100,14 +99,14 @@
         </inertial>
 
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 -0.015 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0 0" />
             <geometry>
                 <cylinder length="0.03" radius="0.025"/>
             </geometry>
         </collision>
 
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 -0.015 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0 0" />
             <geometry>
                 <cylinder length="0.03" radius="0.025"/>
             </geometry>
@@ -138,7 +137,7 @@
         </inertial>
 
         <collision>
-            <origin rpy="1.5707 0 0" xyz="0 0.015 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0 0" />
             <geometry>
                 <cylinder length="0.03" radius="0.025"/>
             </geometry>
@@ -148,7 +147,7 @@
         </collision>
 
         <visual>
-            <origin rpy="1.5707 0 0" xyz="0 0.015 0" />
+            <origin rpy="1.5707 0 0" xyz="0 0 0" />
             <geometry>
                 <cylinder length="0.03" radius="0.025"/>
             </geometry>
@@ -171,7 +170,6 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.00020833" ixy="0" ixz="0" iyy="0.00020833" iyz="0" izz="0.00020833"/>
         </inertial>
-
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
