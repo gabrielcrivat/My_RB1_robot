@@ -129,35 +129,16 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <inertia ixx="0.00020833" ixy="0" ixz="0" iyy="0.00020833" iyz="0" izz="0.00020833"/>
         </inertial>
-        
-    
-     <!-- Caster wheel support back-->
+
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
-            <geometry>
-                <sphere radius="0.03" />
-            </geometry>
-        </collision>
-        <visual>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-            <geometry>
-                <sphere radius="0.03" />
-            </geometry>
-            <material name="DarkBlue">
-                <color rgba="0.2 0.2 0.4 1" />
-            </material>
-        </visual>
-     
-     <!-- Caster wheel back-->
-          <collision>
-            <origin rpy="0 0 0" xyz="0 0 -0.03" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
         </collision>
         
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 -0.03" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
@@ -185,33 +166,15 @@
             <inertia ixx="0.00020833" ixy="0" ixz="0" iyy="0.00020833" iyz="0" izz="0.00020833"/>
         </inertial>
 
-     <!-- Caster wheel support front-->
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
-            <geometry>
-                <sphere radius="0.03" />
-            </geometry>
-        </collision>
-        <visual>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-            <geometry>
-                <sphere radius="0.03" />
-            </geometry>
-            <material name="DarkBlue">
-                <color rgba="0.2 0.2 0.4 1" />
-            </material>
-        </visual>
-
-     <!-- Caster wheel front-->
-         <collision>
-            <origin rpy="0 0 0" xyz="0 0 -0.03" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
         </collision>
 
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 -0.03" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
