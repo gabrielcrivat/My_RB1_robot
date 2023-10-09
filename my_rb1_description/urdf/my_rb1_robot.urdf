@@ -158,7 +158,7 @@
 
     <!-- Joint - caster wheel back -->
     <joint name="joint_base_caster_wheel_back" type="fixed">
-        <origin rpy="0 0 0" xyz="-0.1 0.0 -0.15" />
+        <origin rpy="0 0 0" xyz="-0.1 0.0 -0.10" />
         <child link="back_caster" />
         <parent link="base_link" />
         <joint_properties damping="1.0" friction="1" />
@@ -168,18 +168,38 @@
     <link name="back_caster">
         <inertial>
             <mass value="0.5" />
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.05" rpy="0 0 0" />
             <inertia ixx="0.00020833" ixy="0" ixz="0" iyy="0.00020833" iyz="0" izz="0.00020833"/>
         </inertial>
+
+         <!-- Caster wheel support back -->
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.065" />
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.065" />
+            </geometry>
+            <material name="DarkBlue">
+                <color rgba="0.2 0.2 0.4 1" />
+            </material>
+        </visual>
+
+        <!-- Caster wheel -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 -0.05" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
         </collision>
         
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0" />
+            <origin rpy="0 0 0" xyz="0 0 -0.05" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
@@ -189,27 +209,10 @@
         </visual>
     </link>
 
-    <!-- Caster wheel support back -->
-        <collision>
-            <origin rpy="0 0 0" xyz="-0.1 0 -0.14" />
-            <geometry>
-                <sphere radius="0.025" />
-            </geometry>
-        </collision>
-        <visual>
-            <origin rpy="0 0 0" xyz="-0.1 0 -0.14" />
-            <geometry>
-                <sphere radius="0.025" />
-            </geometry>
-            <material name="DarkBlue">
-                <color rgba="0.2 0.2 0.4 1" />
-            </material>
-        </visual>
-
 
     <!-- Joint - caster wheel front -->
     <joint name="joint_base_caster_wheel_front" type="fixed">
-        <origin rpy="0 0 0" xyz="0.1 0.0 -0.15" />
+        <origin rpy="0 0 0" xyz="0.1 0.0 -0.10" />
         <child link="front_caster" />
         <parent link="base_link" />
         <joint_properties damping="1.0" friction="1" />
@@ -220,19 +223,37 @@
     <link name="front_caster">
         <inertial>
             <mass value="0.5" />
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.05" rpy="0 0 0" />
             <inertia ixx="0.00020833" ixy="0" ixz="0" iyy="0.00020833" iyz="0" izz="0.00020833"/>
         </inertial>
 
+        <!-- Caster wheel support front -->
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.065" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.065" />
+            </geometry>
+            <material name="DarkBlue">
+                <color rgba="0.2 0.2 0.4 1" />
+            </material>
+        </visual>
+
+        <!-- Caster wheel -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 -0.05" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
         </collision>
 
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0" />
+            <origin rpy="0 0 0" xyz="0 0 -0.05" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
@@ -242,22 +263,6 @@
         </visual>
     </link>
 
-    <!-- Caster wheel support front -->
-        <collision>
-            <origin rpy="0 0 0" xyz="0.1 0 -0.14" />
-            <geometry>
-                <sphere radius="0.025" />
-            </geometry>
-        </collision>
-        <visual>
-            <origin rpy="0 0 0" xyz="0 0 -0.14" />
-            <geometry>
-                <sphere radius="0.025" />
-            </geometry>
-            <material name="DarkBlue">
-                <color rgba="0.2 0.2 0.4 1" />
-            </material>
-        </visual>
 
     <!-- Differential drive controller -->
     <gazebo>
