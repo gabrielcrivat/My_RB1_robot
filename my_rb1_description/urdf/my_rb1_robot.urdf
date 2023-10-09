@@ -191,13 +191,13 @@
 
     <!-- Caster wheel support back -->
         <collision>
-            <origin rpy="0 0 0" xyz="-0.1 0 -0.135" />
+            <origin rpy="0 0 0" xyz="-0.1 0 -0.14" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
         </collision>
         <visual>
-            <origin rpy="0 0 0" xyz="-0.1 0 -0.135" />
+            <origin rpy="0 0 0" xyz="-0.1 0 -0.14" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
@@ -244,13 +244,13 @@
 
     <!-- Caster wheel support front -->
         <collision>
-            <origin rpy="0 0 0" xyz="0.1 0 -0.135" />
+            <origin rpy="0 0 0" xyz="0.1 0 -0.14" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
         </collision>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 -0.135" />
+            <origin rpy="0 0 0" xyz="0 0 -0.14" />
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
