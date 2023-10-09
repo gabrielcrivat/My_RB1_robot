@@ -189,6 +189,23 @@
         </visual>
     </link>
 
+    <!-- Caster wheel support back -->
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.1 0 -0.135" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="-0.1 0 -0.135" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="DarkBlue">
+                <color rgba="0.2 0.2 0.4 1" />
+            </material>
+        </visual>
+
 
     <!-- Joint - caster wheel front -->
     <joint name="joint_base_caster_wheel_front" type="fixed">
@@ -224,6 +241,23 @@
             </material>
         </visual>
     </link>
+
+    <!-- Caster wheel support front -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0.1 0 -0.135" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 -0.135" />
+            <geometry>
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="DarkBlue">
+                <color rgba="0.2 0.2 0.4 1" />
+            </material>
+        </visual>
 
     <!-- Differential drive controller -->
     <gazebo>
