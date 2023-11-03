@@ -7,12 +7,11 @@
 #include "ros/service_server.h"
 #include "ros/subscriber.h"
 #include <cmath>
-#include <ros/rate.h>
 #include <ros/ros.h>
+
 
 // global variables
 double yaw_now = 0.0;
-double yaw_init = 0.0;
 ros::Publisher vel_pub;
 ros::Subscriber odom_sub;
 ros::ServiceServer my_service;
@@ -26,7 +25,8 @@ void odomCb(const nav_msgs::Odometry::ConstPtr &msg) {
 
   // current angle in rad
 
-  yaw_now = atan2(2.0 * (y * x + w * z), w * w + x * x - y * y - z * z);
+  yaw_now = atan2(2.0 * (w * z + x * y), w * w + x * x - y * y - z * z);
+ 
 };
 
 bool setRotCb(my_rb1_ros::Rotate::Request &req,
@@ -35,24 +35,37 @@ bool setRotCb(my_rb1_ros::Rotate::Request &req,
   ROS_INFO("Service Requested: /rotate_robot.");
   ROS_INFO("Degrees to rotate: %d", req.degrees);
 
-  double yawRotRad = req.degrees * (M_PI / 180);
-  yaw_init = yaw_now;
-  double fin_yaw = yaw_init + yawRotRad; // goal_yaw in rad
-  double kP = 0.5;
+  double yawRotRad = req.degrees *(M_PI / 180);
+  double fin_yaw = yaw_now + yawRotRad;
 
-  while (fabs(fin_yaw - yaw_init) > 0.017) {
+   while(fin_yaw > M_PI)
+    {
+        fin_yaw -= 2*M_PI;
+    }
+
+    while(fin_yaw < -M_PI)
+    {
+       fin_yaw += 2*M_PI; 
+    }
+
+
+  while(fabs(fin_yaw - yaw_now) > 0.017) {
     ros::spinOnce();
+    ROS_INFO("CURRENT ANGLE: %f", yaw_now);
     geometry_msgs::Twist vel_msg;
-    vel_msg.angular.z =
-        kP * (fin_yaw - yaw_init); // proportional controller. takes into
-                                   // account direction and modulus omega
-    vel_pub.publish(vel_msg);
-    yaw_init = yaw_now;
-    /*ROS_INFO("fin_yaw: %lf", fin_yaw);
-    ROS_INFO("yaw_now: %lf", yaw_now);
-    ROS_INFO("yaw_init: %lf", yaw_init);*/
-  };
 
+    if(yawRotRad > 0)
+    {
+    vel_msg.angular.z = 0.2;
+    }
+    else
+    {
+    vel_msg.angular.z = -0.2;
+    }
+
+    vel_pub.publish(vel_msg);
+  };
+  
   geometry_msgs::Twist twist_cmd;
   twist_cmd.angular.z = 0; // stop the robot
   twist_cmd.linear.x = 0;
@@ -61,8 +74,10 @@ bool setRotCb(my_rb1_ros::Rotate::Request &req,
 
   res.result = "Rotation Completed";
   ROS_INFO("Service Complete: /rotate_robot");
+
   return true;
 };
+
 
 int main(int argc, char **argv) {
 
